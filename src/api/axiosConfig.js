@@ -25,11 +25,10 @@ const refreshAccessToken = async () => {
   if (!refreshToken) throw new Error("No hay refresh token");
 
   const response = await axios.post(
-    `${import.meta.env.VITE_API_URL || "https://kanban-spring.onrender.com`,
-    refreshToken,
-    { headers: { "Content-Type": "text/plain" } }
-  );
-
+      `${import.meta.env.VITE_API_URL || "https://kanban-spring.onrender.com"}/login/actualizar-token`,
+      refreshToken,
+      { headers: { "Content-Type": "text/plain" } }
+    );
   const { token, refreshToken: nuevoRefresh } = response.data;
   localStorage.setItem("token", token);
   localStorage.setItem("refreshToken", nuevoRefresh);
