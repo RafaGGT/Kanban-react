@@ -25,7 +25,7 @@ const refreshAccessToken = async () => {
   if (!refreshToken) throw new Error("No hay refresh token");
 
   const response = await axios.post(
-    `${import.meta.env.VITE_API_URL || "http://localhost:8082"}/login/actualizar-token`,
+    `${import.meta.env.VITE_API_URL || "https://kanban-spring.onrender.com`,
     refreshToken,
     { headers: { "Content-Type": "text/plain" } }
   );
