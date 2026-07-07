@@ -10,7 +10,7 @@ export default function LoginPage() {
   const { form, handleChange } = useForm({ username: "", password: "" });
   const [serverError, setServerError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const apiBaseUrl = import.meta.env.VITE_API_URL || "http://localhost:8082";
+  const apiBaseUrl = import.meta.env.VITE_API_URL || "https://kanban-react-eight.vercel.app";
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
