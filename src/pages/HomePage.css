@@ -1,0 +1,141 @@
+/* ---------- Encabezado ---------- */
+.home-header {
+  padding-top: 8px;
+  align-items: center;
+  justify-content: center !important;
+  text-align: center;
+}
+
+.home-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-header .btn {
+  align-self: center;
+}
+
+.home-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 10px 0 0;
+  background: linear-gradient(135deg, #fff 40%, var(--accent-violet-soft) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-stats {
+  margin-top: 10px;
+}
+.home-stat {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.home-stat-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+/* ---------- Formulario nuevo tablero ---------- */
+.home-new-board-card {
+  border-left: 2px solid var(--accent-violet) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* ---------- Estado vacío ---------- */
+.home-empty {
+  text-align: center;
+  padding: 48px 24px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.home-empty > .btn {
+  margin-inline: auto;
+}
+
+.home-empty-preview {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 30px 16px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+.home-empty-topbar {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  display: flex;
+  gap: 6px;
+}
+.home-empty-topbar .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.home-empty-cols {
+  display: flex;
+  gap: 10px;
+}
+.home-empty-col {
+  flex: 1;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  border-top: 2px solid var(--col-accent, var(--accent-violet));
+  border-radius: var(--radius-md);
+  padding: 12px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.home-empty-col.accent-violet { --col-accent: var(--accent-violet); }
+.home-empty-col.accent-cyan { --col-accent: var(--accent-cyan); }
+.home-empty-col.accent-pink { --col-accent: var(--accent-pink); }
+
+/* ---------- Tarjetas de tablero ---------- */
+.home-board-card {
+  border-radius: var(--radius-md) !important;
+  border-top: 2px solid var(--card-accent, var(--accent-violet)) !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+}
+
+.home-board-card .card-body {
+  align-items: center;
+  text-align: center;
+}
+
+.home-board-card .card-body .mt-auto {
+  width: 100%;
+  justify-content: center;
+}
+.home-board-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+}
+.home-board-card.accent-violet { --card-accent: var(--accent-violet); }
+.home-board-card.accent-cyan { --card-accent: var(--accent-cyan); }
+.home-board-card.accent-pink { --card-accent: var(--accent-pink); }
+.home-board-card.accent-lime { --card-accent: var(--accent-lime); }
+
+.home-board-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--bg-surface-3);
+  color: var(--card-accent, var(--accent-violet));
+}

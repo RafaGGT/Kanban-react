@@ -1,0 +1,174 @@
+/* ============================================================
+   KANBAN — Tema oscuro con acentos neón
+   Tipografía: Space Grotesk (display) + Inter (texto) + JetBrains Mono (datos)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-base: #07090f;
+  --bg-base-alt: #0c0f1a;
+  --bg-surface: #11141f;
+  --bg-surface-2: #161a28;
+  --bg-surface-3: #1b2032;
+  --border-subtle: #232a3d;
+  --border-strong: #323a54;
+
+  --text-primary: #edf0f8;
+  --text-secondary: #9aa3bd;
+  --text-muted: #5c6584;
+
+  --accent-violet: #8b5cf6;
+  --accent-violet-soft: #a78bfa;
+  --accent-cyan: #22e6c8;
+  --accent-pink: #ff4fa3;
+  --accent-lime: #c6ff3e;
+
+  --glow-violet: rgba(139, 92, 246, 0.45);
+  --glow-cyan: rgba(34, 230, 200, 0.4);
+  --glow-pink: rgba(255, 79, 163, 0.4);
+  --glow-lime: rgba(198, 255, 62, 0.35);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--accent-cyan); }
+
+::selection {
+  background: var(--glow-violet);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-violet); }
+
+/* Foco visible accesible, consistente en toda la app */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============== Overrides de Bootstrap para modo oscuro ============== */
+
+.form-control, .form-select {
+  background-color: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+.form-control:focus, .form-select:focus {
+  background-color: var(--bg-surface-2);
+  border-color: var(--accent-violet);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 3px var(--glow-violet);
+}
+.form-control::placeholder { color: var(--text-muted); }
+.form-control.is-invalid { border-color: var(--accent-pink); }
+.form-control.is-invalid:focus { box-shadow: 0 0 0 3px var(--glow-pink); }
+.invalid-feedback { color: var(--accent-pink); }
+.form-label { color: var(--text-secondary); font-size: 13px; font-weight: 500; }
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-violet), #6d3ff0);
+  border: none;
+  box-shadow: 0 0 0 rgba(139, 92, 246, 0);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(135deg, var(--accent-violet-soft), var(--accent-violet));
+  box-shadow: 0 0 18px var(--glow-violet);
+}
+.btn-primary:disabled { opacity: 0.5; }
+
+.btn-outline-secondary {
+  color: var(--text-secondary);
+  border-color: var(--border-strong);
+  background: transparent;
+}
+.btn-outline-secondary:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.btn-outline-danger {
+  color: var(--accent-pink);
+  border-color: var(--accent-pink);
+  background: transparent;
+}
+.btn-outline-danger:hover {
+  background: var(--accent-pink);
+  color: #1a0510;
+  box-shadow: 0 0 18px var(--glow-pink);
+}
+
+.btn-link.text-danger { color: var(--accent-pink) !important; }
+
+.alert-danger {
+  background: rgba(255, 79, 163, 0.1);
+  border: 1px solid rgba(255, 79, 163, 0.35);
+  color: #ffb8da;
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.text-muted { color: var(--text-muted) !important; }
+
+.bg-light { background-color: var(--bg-base) !important; }
+
+.shadow-sm {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35) !important;
+}

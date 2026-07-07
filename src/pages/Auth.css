@@ -1,0 +1,232 @@
+/* ============================================================
+   Auth (Login / Register) — misma gramática visual del Landing:
+   nav con logo, eyebrow + título en gradiente, mini preview
+   animado del tablero, y tarjeta de formulario con acento.
+   ============================================================ */
+
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(800px 420px at 15% -10%, rgba(139, 92, 246, 0.2), transparent 60%),
+    radial-gradient(600px 360px at 90% 100%, rgba(34, 230, 200, 0.1), transparent 55%),
+    var(--bg-base);
+}
+
+/* ---------- Nav (idéntico al del landing) ---------- */
+.auth-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: clamp(20px, 4vw, 32px);
+  height: 64px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(7, 9, 15, 0.7);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.auth-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.auth-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan), 0 0 18px var(--glow-cyan);
+}
+
+/* ---------- Contenido en dos columnas ---------- */
+.auth-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: 56px;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 56px) clamp(20px, 4vw, 32px);
+}
+
+/* ---------- Panel izquierdo: branding ---------- */
+.auth-brand {
+  animation: fade-up 0.7s ease both;
+}
+
+.auth-title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 14px 0 14px;
+  background: linear-gradient(135deg, #fff 30%, var(--accent-violet-soft) 75%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+.auth-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.auth-perk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.auth-perk-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--perk-accent, var(--accent-violet));
+  box-shadow: 0 0 8px var(--perk-accent, var(--accent-violet));
+}
+.auth-perk.accent-violet { --perk-accent: var(--accent-violet); }
+.auth-perk.accent-cyan { --perk-accent: var(--accent-cyan); }
+.auth-perk.accent-pink { --perk-accent: var(--accent-pink); }
+
+/* Mini preview del tablero, mismo lenguaje visual que el landing */
+.auth-preview {
+  position: relative;
+  max-width: 420px;
+  padding: 36px 18px 18px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+}
+.auth-preview-topbar {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  display: flex;
+  gap: 6px;
+}
+.auth-preview-topbar .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.auth-preview-cols {
+  display: flex;
+  gap: 10px;
+}
+.auth-preview-col {
+  flex: 1;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  border-top: 2px solid var(--col-accent, var(--accent-violet));
+  border-radius: var(--radius-md);
+  padding: 10px;
+}
+.auth-preview-col.accent-violet { --col-accent: var(--accent-violet); }
+.auth-preview-col.accent-cyan { --col-accent: var(--accent-cyan); }
+.auth-preview-col.accent-pink { --col-accent: var(--accent-pink); }
+
+.auth-preview-col-head {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.auth-preview-card {
+  background: var(--bg-surface-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: 7px;
+  padding: 8px;
+  margin-bottom: 6px;
+}
+.auth-preview-card .bar {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--border-strong);
+}
+.auth-preview-card .bar-long { width: 75%; }
+.auth-preview-card .bar-short { width: 45%; margin-top: 5px; opacity: 0.6; }
+
+/* ---------- Panel derecho: tarjeta de formulario ---------- */
+.auth-card {
+  width: 100%;
+  max-width: var(--auth-card-max, 440px) !important;
+  border-radius: var(--radius-lg) !important;
+  border-top: 2px solid var(--accent-violet) !important;
+  animation: fade-up 0.7s ease 0.12s both;
+  justify-self: center;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+}
+.auth-logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan), 0 0 16px var(--glow-cyan);
+}
+
+.auth-link {
+  color: var(--accent-cyan);
+  cursor: pointer;
+  font-weight: 500;
+}
+.auth-link:hover { text-decoration: underline; }
+
+.auth-footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-brand, .auth-card { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .auth-content {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 40px;
+  }
+  .auth-brand { text-align: center; }
+  .auth-subtitle { margin-left: auto; margin-right: auto; }
+  .auth-perks { align-items: center; }
+  .auth-preview { margin: 0 auto; }
+  .auth-card { max-width: 100% !important; }
+}
